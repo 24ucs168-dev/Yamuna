@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K. Yamuna | 3D Personal Portfolio & B.Sc Computer Science Student</title>
+  <meta name="description" content="Official personal portfolio of K. Yamuna, a passionate 3rd-year B.Sc Computer Science student at Muthayammal College of Arts and Science. Explore skills, education, and strengths.">
+  <meta name="keywords" content="K Yamuna, Yamuna, Computer Science Portfolio, B.Sc Computer Science, Muthayammal College, Web Development, HTML, CSS, JavaScript">
+  <meta name="author" content="K. Yamuna">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="K. Yamuna | 3D Personal Portfolio">
+  <meta property="og:description" content="Portfolio of K. Yamuna - B.Sc Computer Science Student. Technical skills, academic qualifications, and verified strengths.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome / Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Three.js (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glowing Background Grid -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Three.js 3D Background Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Sticky Glassmorphic Navbar -->
+  <header class="site-header" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-monogram">
+        <span class="brand-glow">KY</span>
+        <div class="brand-meta">
+          <span class="brand-name">K. YAMUNA</span>
+          <span class="brand-sub">Computer Science</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link"><i class="fa-regular fa-user"></i> About</a></li>
+          <li><a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+          <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> Skills</a></li>
+          <li><a href="#strengths" class="nav-link"><i class="fa-solid fa-bolt"></i> Strengths</a></li>
+          <li><a href="#declaration" class="nav-link"><i class="fa-solid fa-certificate"></i> Declaration</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-regular fa-paper-plane"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="availability-pill">
+          <span class="pulse-dot"></span>
+          <span>Open to Opportunities</span>
+        </div>
+        <button class="btn btn-sm btn-glass" id="printResumeBtn" title="Print or Save Resume as PDF">
+          <i class="fa-solid fa-print"></i> <span>Print CV</span>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Structure -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge-wrap">
+          <span class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i> Welcome to My Interactive 3D Portfolio
+          </span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text text-glow">K. Yamuna</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          <span class="typing-target">B.Sc Computer Science Student</span>
+          <span class="subtitle-divider">|</span>
+          <span class="subtitle-location"><i class="fa-solid fa-location-dot"></i> O. Sowdhapuram</span>
+        </p>
+
+        <p class="hero-desc">
+          Motivated, enthusiastic, and passionate about computing technologies. Dedicated to blending solid computer science fundamentals with modern interactive web experiences.
+        </p>
+
+        <!-- Hero CTAs -->
+        <div class="hero-cta-group">
+          <a href="#education" class="btn btn-primary">
+            <span>Explore Qualifications</span>
+            <i class="fa-solid fa-arrow-down-long"></i>
+          </a>
+          <a href="#contact" class="btn btn-glass">
+            <span>Contact Me</span>
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <button class="btn btn-secondary copy-email-btn" data-email="yamunakanagaraj9@gmail.com">
+            <i class="fa-regular fa-copy"></i>
+            <span>Copy Email</span>
+          </button>
+        </div>
+
+        <!-- Quick Resume Stat Chips -->
+        <div class="hero-stats-strip">
+          <div class="stat-pill tilt-card">
+            <span class="stat-num">75%</span>
+            <span class="stat-label">B.Sc CS (3rd Yr)</span>
+          </div>
+          <div class="stat-pill tilt-card">
+            <span class="stat-num">72%</span>
+            <span class="stat-label">HSC Score</span>
+          </div>
+          <div class="stat-pill tilt-card">
+            <span class="stat-num">68%</span>
+            <span class="stat-label">SSLC Score</span>
+          </div>
+          <div class="stat-pill tilt-card">
+            <span class="stat-num">7+</span>
+            <span class="stat-label">Core Skills</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero 3D Interactive Floating Card -->
+      <div class="hero-3d-visual">
+        <div class="floating-profile-card tilt-card" id="profile3dCard">
+          <div class="card-shimmer"></div>
+          <div class="profile-card-header">
+            <div class="profile-avatar-box">
+              <span class="avatar-initials">KY</span>
+              <div class="avatar-ring"></div>
+            </div>
+            <div class="profile-header-info">
+              <h2 class="profile-card-name">K. Yamuna</h2>
+              <p class="profile-card-role">B.Sc Computer Science Student</p>
+              <span class="profile-card-college"><i class="fa-solid fa-building-columns"></i> Muthayammal College</span>
+            </div>
+          </div>
+
+          <div class="profile-card-divider"></div>
+
+          <div class="profile-details-grid">
+            <div class="detail-item">
+              <span class="detail-label"><i class="fa-regular fa-calendar"></i> Date of Birth</span>
+              <span class="detail-val">08/04/2007</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label"><i class="fa-solid fa-language"></i> Languages</span>
+              <span class="detail-val">Tamil, English</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label"><i class="fa-solid fa-phone"></i> Phone</span>
+              <span class="detail-val">7010645757</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label"><i class="fa-solid fa-map-pin"></i> Place</span>
+              <span class="detail-val">O. Sowdhapuram</span>
+            </div>
+          </div>
+
+          <div class="profile-card-status">
+            <span class="status-indicator"></span>
+            <span>Third Year Undergraduate • 75% Academic Record</span>
+          </div>
+
+          <div class="profile-card-tags">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">MS Office</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER OBJECTIVE & ABOUT SECTION -->
+    <section class="section-container" id="about">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-regular fa-compass"></i> Career Objective</span>
+        <h2 class="section-title">About & <span class="gradient-text">Professional Goal</span></h2>
+        <p class="section-subtitle">Dedicated computer science student seeking to drive value in a forward-thinking organization</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Objective Card -->
+        <div class="objective-card tilt-card glass-panel">
+          <div class="card-glow-spot"></div>
+          <div class="objective-icon-box">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="card-heading">Career Objective</h3>
+          <blockquote class="objective-quote">
+            "A motivated and enthusiastic B.Sc Computer Science student seeking an opportunity to begin my professional career in a reputed organization. I aim to utilize my technical knowledge, develop new skills, and contribute effectively to the growth of the organization."
+          </blockquote>
+          
+          <div class="objective-highlights">
+            <div class="highlight-item">
+              <i class="fa-solid fa-check-circle"></i>
+              <span>High motivation to learn and apply modern IT solutions</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-check-circle"></i>
+              <span>Strong commitment to organizational growth and teamwork</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-check-circle"></i>
+              <span>Building solid computer science & web development foundations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Information Bento -->
+        <div class="personal-bento glass-panel tilt-card">
+          <div class="card-glow-spot"></div>
+          <h3 class="card-heading"><i class="fa-regular fa-id-card"></i> Personal Profile</h3>
+          
+          <div class="bento-list">
+            <div class="bento-item">
+              <div class="bento-icon"><i class="fa-solid fa-user"></i></div>
+              <div class="bento-info">
+                <span class="bento-label">Full Name</span>
+                <span class="bento-value">K. Yamuna</span>
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <div class="bento-icon"><i class="fa-solid fa-cake-candles"></i></div>
+              <div class="bento-info">
+                <span class="bento-label">Date of Birth</span>
+                <span class="bento-value">08/04/2007</span>
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <div class="bento-icon"><i class="fa-solid fa-comments"></i></div>
+              <div class="bento-info">
+                <span class="bento-label">Languages Known</span>
+                <span class="bento-value">Tamil, English</span>
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <div class="bento-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+              <div class="bento-info">
+                <span class="bento-label">Residential Place</span>
+                <span class="bento-value">O. Sowdhapuram</span>
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <div class="bento-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              <div class="bento-info">
+                <span class="bento-label">Official Email</span>
+                <span class="bento-value text-break">yamunakanagaraj9@gmail.com</span>
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <div class="bento-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <div class="bento-info">
+                <span class="bento-label">Phone Contact</span>
+                <span class="bento-value">+91 7010645757</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATIONAL QUALIFICATIONS TIMELINE -->
+    <section class="section-container" id="education">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Academic Pathway</span>
+        <h2 class="section-title">Educational <span class="gradient-text">Qualifications</span></h2>
+        <p class="section-subtitle">Consistent academic milestones showcasing discipline and computer science interest</p>
+      </div>
+
+      <div class="education-timeline">
+        <!-- Degree 1: B.Sc Computer Science -->
+        <div class="timeline-card-wrapper">
+          <div class="timeline-node">
+            <span class="node-glow"></span>
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-card glass-panel tilt-card">
+            <div class="timeline-badge-row">
+              <span class="degree-pill active-degree">Current • Third Year</span>
+              <span class="percentage-pill"><i class="fa-solid fa-chart-line"></i> 75% Score</span>
+            </div>
+            
+            <h3 class="degree-title">B.Sc Computer Science</h3>
+            <h4 class="institution-name">
+              <i class="fa-solid fa-school-flag"></i> Muthayammal College of Arts and Science
+            </h4>
+            
+            <p class="degree-desc">
+              Currently pursuing the Third Year of B.Sc Computer Science with a strong academic standing of 75%. Actively gaining knowledge in programming concepts, algorithms, web technologies, and computational problem solving.
+            </p>
+
+            <div class="degree-progress-wrap">
+              <div class="progress-info">
+                <span>Academic Performance</span>
+                <span class="progress-val">75%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-cyan" style="width: 75%;"></div>
+              </div>
+            </div>
+
+            <div class="card-footer-tags">
+              <span class="badge-sub">Undergraduate</span>
+              <span class="badge-sub">Third Year</span>
+              <span class="badge-sub">Computer Science</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Degree 2: Higher Secondary (HSC) -->
+        <div class="timeline-card-wrapper">
+          <div class="timeline-node">
+            <span class="node-glow"></span>
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <div class="timeline-card glass-panel tilt-card">
+            <div class="timeline-badge-row">
+              <span class="degree-pill">Completed</span>
+              <span class="percentage-pill"><i class="fa-solid fa-chart-line"></i> 72% Score</span>
+            </div>
+
+            <h3 class="degree-title">Higher Secondary Certificate (HSC)</h3>
+            <h4 class="institution-name">
+              <i class="fa-solid fa-building-columns"></i> Government Girls Higher Secondary School
+            </h4>
+
+            <p class="degree-desc">
+              Completed Higher Secondary Education with an impressive 72% overall score, building strong analytical skills, mathematical reasoning, and discipline.
+            </p>
+
+            <div class="degree-progress-wrap">
+              <div class="progress-info">
+                <span>Academic Performance</span>
+                <span class="progress-val">72%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-violet" style="width: 72%;"></div>
+              </div>
+            </div>
+
+            <div class="card-footer-tags">
+              <span class="badge-sub">HSC</span>
+              <span class="badge-sub">State Board</span>
+              <span class="badge-sub">High School</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Degree 3: SSLC -->
+        <div class="timeline-card-wrapper">
+          <div class="timeline-node">
+            <span class="node-glow"></span>
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="timeline-card glass-panel tilt-card">
+            <div class="timeline-badge-row">
+              <span class="degree-pill">Completed</span>
+              <span class="percentage-pill"><i class="fa-solid fa-chart-line"></i> 68% Score</span>
+            </div>
+
+            <h3 class="degree-title">Secondary School Leaving Certificate (SSLC)</h3>
+            <h4 class="institution-name">
+              <i class="fa-solid fa-school"></i> Government High School
+            </h4>
+
+            <p class="degree-desc">
+              Successfully completed Secondary School Leaving Certificate (SSLC) with 68%, demonstrating foundational academic diligence and active participation.
+            </p>
+
+            <div class="degree-progress-wrap">
+              <div class="progress-info">
+                <span>Academic Performance</span>
+                <span class="progress-val">68%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-emerald" style="width: 68%;"></div>
+              </div>
+            </div>
+
+            <div class="card-footer-tags">
+              <span class="badge-sub">SSLC</span>
+              <span class="badge-sub">Foundation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section class="section-container" id="skills">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-code"></i> Competencies</span>
+        <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+        <p class="section-subtitle">Proficiencies in front-end web markup, scripting, and enterprise office productivity</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Skill 1: HTML -->
+        <div class="skill-card glass-panel tilt-card">
+          <div class="skill-icon-header">
+            <div class="skill-icon-box html-glow">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <span class="skill-cat">Markup</span>
+          </div>
+          <h3 class="skill-title">HTML</h3>
+          <p class="skill-desc">Structuring modern, responsive, and semantic web layouts with accessible DOM standards.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-head">
+              <span>Proficiency</span>
+              <span>Advanced</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill fill-orange" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span>Semantic Tags</span>
+            <span>Forms</span>
+            <span>DOM</span>
+          </div>
+        </div>
+
+        <!-- Skill 2: CSS -->
+        <div class="skill-card glass-panel tilt-card">
+          <div class="skill-icon-header">
+            <div class="skill-icon-box css-glow">
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <span class="skill-cat">Styling</span>
+          </div>
+          <h3 class="skill-title">CSS</h3>
+          <p class="skill-desc">Crafting responsive design with Flexbox, Grid, transitions, animations, and modern glassmorphism.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-head">
+              <span>Proficiency</span>
+              <span>Advanced</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill fill-blue" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span>Flexbox</span>
+            <span>CSS Grid</span>
+            <span>Glassmorphism</span>
+          </div>
+        </div>
+
+        <!-- Skill 3: Basic JavaScript -->
+        <div class="skill-card glass-panel tilt-card">
+          <div class="skill-icon-header">
+            <div class="skill-icon-box js-glow">
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <span class="skill-cat">Scripting</span>
+          </div>
+          <h3 class="skill-title">Basic JavaScript</h3>
+          <p class="skill-desc">Event handling, DOM manipulation, interactive animations, and dynamic client-side logic.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-head">
+              <span>Proficiency</span>
+              <span>Foundational</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill fill-yellow" style="width: 70%;"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span>DOM Events</span>
+            <span>Functions</span>
+            <span>Logic</span>
+          </div>
+        </div>
+
+        <!-- Skill 4: MS Word -->
+        <div class="skill-card glass-panel tilt-card">
+          <div class="skill-icon-header">
+            <div class="skill-icon-box word-glow">
+              <i class="fa-solid fa-file-word"></i>
+            </div>
+            <span class="skill-cat">Office Suite</span>
+          </div>
+          <h3 class="skill-title">MS Word</h3>
+          <p class="skill-desc">Professional document formatting, technical reporting, layout styling, and documentation.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-head">
+              <span>Proficiency</span>
+              <span>Proficient</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill fill-word" style="width: 88%;"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span>Documentation</span>
+            <span>Formatting</span>
+            <span>Reports</span>
+          </div>
+        </div>
+
+        <!-- Skill 5: MS Excel -->
+        <div class="skill-card glass-panel tilt-card">
+          <div class="skill-icon-header">
+            <div class="skill-icon-box excel-glow">
+              <i class="fa-solid fa-file-excel"></i>
+            </div>
+            <span class="skill-cat">Office Suite</span>
+          </div>
+          <h3 class="skill-title">MS Excel</h3>
+          <p class="skill-desc">Data analysis, tabular spreadsheets, mathematical formulas, and structured record organization.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-head">
+              <span>Proficiency</span>
+              <span>Proficient</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill fill-excel" style="width: 78%;"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span>Spreadsheets</span>
+            <span>Formulas</span>
+            <span>Data Analysis</span>
+          </div>
+        </div>
+
+        <!-- Skill 6: PowerPoint -->
+        <div class="skill-card glass-panel tilt-card">
+          <div class="skill-icon-header">
+            <div class="skill-icon-box ppt-glow">
+              <i class="fa-solid fa-file-powerpoint"></i>
+            </div>
+            <span class="skill-cat">Office Suite</span>
+          </div>
+          <h3 class="skill-title">PowerPoint</h3>
+          <p class="skill-desc">Creating compelling slide decks, academic presentations, visuals, and conference displays.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-head">
+              <span>Proficiency</span>
+              <span>Proficient</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill fill-ppt" style="width: 82%;"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span>Slide Design</span>
+            <span>Visual Decks</span>
+            <span>Transitions</span>
+          </div>
+        </div>
+
+        <!-- Skill 7: Basic Computer Skills -->
+        <div class="skill-card glass-panel tilt-card full-span-mobile">
+          <div class="skill-icon-header">
+            <div class="skill-icon-box pc-glow">
+              <i class="fa-solid fa-desktop"></i>
+            </div>
+            <span class="skill-cat">Foundations</span>
+          </div>
+          <h3 class="skill-title">Basic Computer Skills</h3>
+          <p class="skill-desc">Operating system navigation, file system management, internet research, peripheral operations, and computer fundamentals.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-head">
+              <span>Proficiency</span>
+              <span>Expert Grounding</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill fill-cyan" style="width: 90%;"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span>OS Navigation</span>
+            <span>File Management</span>
+            <span>Hardware Basics</span>
+            <span>Internet Tools</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Interactive Code Playground Showcase -->
+      <div class="interactive-playground glass-panel">
+        <div class="playground-header">
+          <div class="window-controls">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="playground-title">
+            <i class="fa-solid fa-terminal"></i> Live Interactive Skill Playground (HTML • CSS • JS)
+          </div>
+          <span class="live-pill">Interactive Demo</span>
+        </div>
+
+        <div class="playground-body">
+          <div class="playground-code-col">
+            <div class="editor-tab">
+              <span><i class="fa-solid fa-code"></i> live-demo.js</span>
+              <button class="btn-copy-code" id="resetPlaygroundBtn" title="Reset code">
+                <i class="fa-solid fa-rotate-right"></i> Reset
+              </button>
+            </div>
+            <pre class="code-editor"><code id="codeSnippet">// K. Yamuna's Interactive Skill Demonstration
+function introduceStudent() {
+  const candidate = {
+    name: "K. Yamuna",
+    degree: "B.Sc Computer Science",
+    year: "Third Year",
+    college: "Muthayammal College",
+    marks: "75%",
+    status: "Seeking Opportunity"
+  };
+  return `Candidate: ${candidate.name} (${candidate.degree})`;
+}
+
+console.log(introduceStudent());</code></pre>
+            <div class="playground-controls">
+              <button class="btn btn-sm btn-primary" id="runCodeBtn">
+                <i class="fa-solid fa-play"></i> Run Code Simulation
+              </button>
+            </div>
+          </div>
+
+          <div class="playground-output-col">
+            <div class="output-tab">
+              <i class="fa-solid fa-display"></i> Console Output
+            </div>
+            <div class="terminal-screen" id="terminalOutput">
+              <div class="terminal-line text-muted">> Ready to execute... click "Run Code Simulation"</div>
+              <div class="terminal-line text-cyan">> Environment: B.Sc Computer Science Runtime v2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRENGTHS & CORE TRAITS SECTION -->
+    <section class="section-container" id="strengths">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-sparkles"></i> Work Ethic & Soft Skills</span>
+        <h2 class="section-title">Core <span class="gradient-text">Strengths</span></h2>
+        <p class="section-subtitle">Key personal strengths driving high performance, continuous learning, and teamwork</p>
+      </div>
+
+      <div class="strengths-bento">
+        <!-- Strength 1 -->
+        <div class="strength-box glass-panel tilt-card">
+          <div class="strength-icon-circle violet-ring">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="strength-name">Quick Learner</h3>
+          <p class="strength-description">
+            High aptitude for absorbing new programming languages, software paradigms, and evolving tech stacks with speed and curiosity.
+          </p>
+          <div class="strength-meter">
+            <span class="meter-tag">Adaptability</span>
+            <span class="meter-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Strength 2 -->
+        <div class="strength-box glass-panel tilt-card">
+          <div class="strength-icon-circle cyan-ring">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+          <h3 class="strength-name">Hardworking</h3>
+          <p class="strength-description">
+            Strong commitment to excellence, thoroughness in academic assignments, and consistent effort to overcome difficult technical challenges.
+          </p>
+          <div class="strength-meter">
+            <span class="meter-tag">Diligence</span>
+            <span class="meter-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Strength 3 -->
+        <div class="strength-box glass-panel tilt-card">
+          <div class="strength-icon-circle emerald-ring">
+            <i class="fa-solid fa-sun"></i>
+          </div>
+          <h3 class="strength-name">Positive Attitude</h3>
+          <p class="strength-description">
+            Approaches every challenge with enthusiasm, open-minded optimism, and resilience in high-pressure project deadlines.
+          </p>
+          <div class="strength-meter">
+            <span class="meter-tag">Mindset</span>
+            <span class="meter-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Strength 4 -->
+        <div class="strength-box glass-panel tilt-card">
+          <div class="strength-icon-circle amber-ring">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <h3 class="strength-name">Teamwork</h3>
+          <p class="strength-description">
+            Active collaborator with clear communication skills, empathetic listener, and supportive peer in college practicals and group tasks.
+          </p>
+          <div class="strength-meter">
+            <span class="meter-tag">Collaboration</span>
+            <span class="meter-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Strength 5 -->
+        <div class="strength-box glass-panel tilt-card">
+          <div class="strength-icon-circle blue-ring">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <h3 class="strength-name">Time Management</h3>
+          <p class="strength-description">
+            Disciplined organization of coursework, meeting academic deadlines, and balancing multiple priorities with efficiency.
+          </p>
+          <div class="strength-meter">
+            <span class="meter-tag">Punctuality</span>
+            <span class="meter-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Strength 6 -->
+        <div class="strength-box glass-panel tilt-card">
+          <div class="strength-icon-circle rose-ring">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3 class="strength-name">Problem-Solving Skills</h3>
+          <p class="strength-description">
+            Analytical thinker capable of breaking complex problems down into structured, logical, and code-ready components.
+          </p>
+          <div class="strength-meter">
+            <span class="meter-tag">Logic & Analysis</span>
+            <span class="meter-stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFICIAL DECLARATION CERTIFICATE -->
+    <section class="section-container" id="declaration">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-stamp"></i> Authenticity Guarantee</span>
+        <h2 class="section-title">Official <span class="gradient-text">Declaration</span></h2>
+        <p class="section-subtitle">Verified statement from K. Yamuna regarding accuracy of credentials</p>
+      </div>
+
+      <div class="declaration-wrapper">
+        <div class="declaration-certificate glass-panel tilt-card">
+          <div class="cert-corner top-left"></div>
+          <div class="cert-corner top-right"></div>
+          <div class="cert-corner bottom-left"></div>
+          <div class="cert-corner bottom-right"></div>
+
+          <div class="cert-watermark"><i class="fa-solid fa-certificate"></i></div>
+
+          <div class="cert-header">
+            <div class="cert-seal">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="cert-title-group">
+              <span class="cert-sub">VERIFIED PROFESSIONAL RECORD</span>
+              <h3 class="cert-heading">Declaration of Authenticity</h3>
+            </div>
+          </div>
+
+          <p class="declaration-statement">
+            "I hereby declare that the information provided above is true and correct to the best of my knowledge."
+          </p>
+
+          <div class="declaration-meta-grid">
+            <div class="decl-meta-item">
+              <span class="meta-label"><i class="fa-solid fa-location-dot"></i> Place</span>
+              <span class="meta-value">O. Sowdhapuram</span>
+            </div>
+
+            <div class="decl-meta-item">
+              <span class="meta-label"><i class="fa-regular fa-calendar-check"></i> Date</span>
+              <span class="meta-value">23/09/2026</span>
+            </div>
+
+            <div class="decl-meta-item signature-box">
+              <span class="meta-label"><i class="fa-solid fa-signature"></i> Candidate Signature</span>
+              <div class="signature-cursive">K. Yamuna</div>
+              <span class="meta-sub">K. YAMUNA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & CONNECT HUB -->
+    <section class="section-container" id="contact">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-regular fa-envelope"></i> Let's Connect</span>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="section-subtitle">Open for entry-level positions, internships, and professional career opportunities</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Information Cards -->
+        <div class="contact-info-col">
+          <!-- Card: Phone -->
+          <div class="contact-card glass-panel tilt-card">
+            <div class="contact-icon phone-glow">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <span class="contact-type">Direct Phone Call</span>
+              <a href="tel:7010645757" class="contact-value link-highlight">+91 7010645757</a>
+              <span class="contact-note">Available during standard business hours</span>
+            </div>
+            <button class="btn-copy-chip copy-phone-btn" data-phone="7010645757" title="Copy Phone Number">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <!-- Card: Email -->
+          <div class="contact-card glass-panel tilt-card">
+            <div class="contact-icon mail-glow">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <span class="contact-type">Official Email</span>
+              <a href="mailto:yamunakanagaraj9@gmail.com" class="contact-value link-highlight">yamunakanagaraj9@gmail.com</a>
+              <span class="contact-note">Guaranteed quick response</span>
+            </div>
+            <button class="btn-copy-chip copy-email-btn" data-email="yamunakanagaraj9@gmail.com" title="Copy Email">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <!-- Card: Place -->
+          <div class="contact-card glass-panel tilt-card">
+            <div class="contact-icon loc-glow">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="contact-details">
+              <span class="contact-type">Location / Residence</span>
+              <span class="contact-value">O. Sowdhapuram</span>
+              <span class="contact-note">Tamil Nadu, India</span>
+            </div>
+            <div class="verified-loc-badge">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+
+          <!-- Quick Actions Panel -->
+          <div class="quick-actions-panel glass-panel">
+            <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Instant Actions</h4>
+            <div class="action-btn-group">
+              <button class="btn btn-secondary btn-full copy-email-btn" data-email="yamunakanagaraj9@gmail.com">
+                <i class="fa-regular fa-copy"></i> Copy Email Address
+              </button>
+              <button class="btn btn-secondary btn-full copy-phone-btn" data-phone="7010645757">
+                <i class="fa-solid fa-phone"></i> Copy Phone Number
+              </button>
+              <button class="btn btn-glass btn-full" id="triggerPrintBtn">
+                <i class="fa-solid fa-file-arrow-down"></i> Print / Save Portfolio CV
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Direct Message Form -->
+        <div class="contact-form-col">
+          <div class="form-container glass-panel">
+            <div class="form-header">
+              <h3 class="form-title">Send a Direct Message</h3>
+              <p class="form-subtitle">Fill in the fields below to initiate communication directly with K. Yamuna</p>
+            </div>
+
+            <form id="portfolioContactForm" class="contact-form">
+              <div class="form-group">
+                <label for="senderName" class="form-label">Your Name / Organization <span class="required">*</span></label>
+                <div class="input-wrap">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input type="text" id="senderName" class="form-input" placeholder="e.g. Talent Acquisition / Tech Recruiter" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="senderEmail" class="form-label">Your Email Address <span class="required">*</span></label>
+                <div class="input-wrap">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input type="email" id="senderEmail" class="form-input" placeholder="e.g. recruiter@company.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="messageSubject" class="form-label">Subject</label>
+                <div class="input-wrap">
+                  <i class="fa-regular fa-bookmark input-icon"></i>
+                  <input type="text" id="messageSubject" class="form-input" placeholder="Job Opportunity / Interview Invitation" value="Opportunity for B.Sc Computer Science Graduate">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="messageBody" class="form-label">Message <span class="required">*</span></label>
+                <div class="input-wrap text-wrap">
+                  <i class="fa-regular fa-comment-dots input-icon textarea-icon"></i>
+                  <textarea id="messageBody" class="form-input form-textarea" rows="4" placeholder="Hello K. Yamuna, we reviewed your portfolio and would like to discuss an opportunity..." required></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full submit-btn">
+                <span>Dispatch Email Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRINTABLE RESUME TEMPLATE (Hidden from normal view, formatted exclusively for Print/PDF) -->
+  <div class="printable-resume-container" id="printableResume">
+    <div class="print-header">
+      <div class="print-name-col">
+        <h1 class="print-name">K. YAMUNA</h1>
+        <p class="print-tagline">B.Sc Computer Science Undergraduate</p>
+      </div>
+      <div class="print-contact-col">
+        <p><strong>Phone:</strong> 7010645757</p>
+        <p><strong>Email:</strong> yamunakanagaraj9@gmail.com</p>
+        <p><strong>Place:</strong> O. Sowdhapuram</p>
+      </div>
+    </div>
+
+    <hr class="print-divider">
+
+    <section class="print-section">
+      <h2 class="print-sec-title">CAREER OBJECTIVE</h2>
+      <p class="print-text">
+        A motivated and enthusiastic B.Sc Computer Science student seeking an opportunity to begin my professional career in a reputed organization. I aim to utilize my technical knowledge, develop new skills, and contribute effectively to the growth of the organization.
+      </p>
+    </section>
+
+    <section class="print-section">
+      <h2 class="print-sec-title">EDUCATIONAL QUALIFICATION</h2>
+      <table class="print-table">
+        <thead>
+          <tr>
+            <th>Course / Level</th>
+            <th>Institution</th>
+            <th>Year / Status</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>B.Sc Computer Science</strong></td>
+            <td>Muthayammal College of Arts and Science</td>
+            <td>Third Year</td>
+            <td><strong>75%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Higher Secondary (HSC)</strong></td>
+            <td>Government Girls Higher Secondary School</td>
+            <td>Completed</td>
+            <td><strong>72%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>SSLC</strong></td>
+            <td>Government High School</td>
+            <td>Completed</td>
+            <td><strong>68%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="print-section">
+      <h2 class="print-sec-title">TECHNICAL SKILLS</h2>
+      <div class="print-skills-grid">
+        <span>• HTML</span>
+        <span>• CSS</span>
+        <span>• Basic JavaScript</span>
+        <span>• MS Word</span>
+        <span>• MS Excel</span>
+        <span>• PowerPoint</span>
+        <span>• Basic Computer Skills</span>
+      </div>
+    </section>
+
+    <section class="print-section">
+      <h2 class="print-sec-title">STRENGTHS</h2>
+      <div class="print-strengths-grid">
+        <span>• Quick Learner</span>
+        <span>• Hardworking</span>
+        <span>• Positive Attitude</span>
+        <span>• Teamwork</span>
+        <span>• Time Management</span>
+        <span>• Problem-Solving Skills</span>
+      </div>
+    </section>
+
+    <section class="print-section">
+      <h2 class="print-sec-title">PERSONAL DETAILS</h2>
+      <div class="print-personal-grid">
+        <p><strong>Name:</strong> K. Yamuna</p>
+        <p><strong>Date of Birth:</strong> 08/04/2007</p>
+        <p><strong>Languages Known:</strong> Tamil, English</p>
+        <p><strong>Place:</strong> O. Sowdhapuram</p>
+      </div>
+    </section>
+
+    <section class="print-section print-decl-sec">
+      <h2 class="print-sec-title">DECLARATION</h2>
+      <p class="print-text">
+        I hereby declare that the information provided above is true and correct to the best of my knowledge.
+      </p>
+      <div class="print-signature-row">
+        <div>
+          <p><strong>Place:</strong> O. Sowdhapuram</p>
+          <p><strong>Date:</strong> 23/09/2026</p>
+        </div>
+        <div class="signature-right">
+          <p class="print-sign-cursive">K. Yamuna</p>
+          <p><strong>Signature:</strong> K. Yamuna</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modern Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">KY</span>
+        <div class="footer-meta">
+          <h3>K. YAMUNA</h3>
+          <p>B.Sc Computer Science Student • Portfolio 2026</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">Objective</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#strengths">Strengths</a>
+        <a href="#declaration">Declaration</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 K. Yamuna. All portfolio content verified from official resume. Designed with 3D WebGL & Glassmorphism.</p>
+        <a href="#hero" class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Feedback Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="three-bg.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
