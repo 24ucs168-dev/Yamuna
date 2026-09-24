@@ -30,6 +30,10 @@ while ($listener.IsListening) {
                 $response.ContentType = "application/javascript; charset=utf-8"
             } elseif ($filePath.EndsWith(".json")) {
                 $response.ContentType = "application/json; charset=utf-8"
+            } elseif ($filePath.EndsWith(".jpg") -or $filePath.EndsWith(".jpeg")) {
+                $response.ContentType = "image/jpeg"
+            } elseif ($filePath.EndsWith(".png")) {
+                $response.ContentType = "image/png"
             } else {
                 $response.ContentType = "application/octet-stream"
             }
